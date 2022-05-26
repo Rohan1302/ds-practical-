@@ -1,0 +1,40 @@
+ASS-8-9-titanic
+1.#import all dependancies and load inbuild 'Titanic' datasets 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+Titanic = sns.load_dataset('titanic')
+
+Titanic.head()
+
+2.#Distributional Plot
+sns.displot(Titanic['fare'])
+
+3.#The Joint Plot
+sns.jointplot(x='age', y='fare', data=Titanic)
+
+4.sns.jointplot(x='age', y='fare', data=Titanic, kind='hex')
+
+5.sns.pairplot(Titanic)
+
+6.Titanic = Titanic.dropna()
+sns.pairplot(Titanic, hue='sex')
+
+7.sns.rugplot(Titanic['fare'])
+8.sns.barplot(x='sex', y='age', data=Titanic)
+9.#Calculate the Aggregate values of category using estimate
+import numpy as np
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.barplot(x='sex', y='age', data=Titanic, estimator=np.std)
+
+10.sns.boxplot(x='sex', y='age', data=Titanic)
+
+11.sns.boxplot(x='sex', y='age', data=Titanic, hue="survived")
+12.sns.stripplot(x='sex', y='age', data=Titanic)
+13.sns.stripplot(x='sex', y='age', data=Titanic, jitter=True)
+
+14.sns.stripplot(x='sex', y='age', data=Titanic, jitter=True, hue='survived')

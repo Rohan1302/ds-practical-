@@ -1,0 +1,42 @@
+1.#To import pandas library
+import pandas as pd
+2.# To access dataset into dataframe
+datav1= pd.read_csv('vehicles.csv')
+3.#Display column names
+datav1.columns
+4.#copy first 50 rows into new dataframe datav2
+datav2= datav1.head(5)
+# Display data of dataframe
+datav2
+5.datav2.iloc[0:5] # first five rows of dataframe
+6.datav2.iloc[:, 0:1] # first two columns of data frame with all rows
+datav2.iloc[0:5, 5:8] # first 5 rows and 5th, 6th, 7th columns of data frame 
+7.#Display single column or to access single column
+datav2['region']
+8.#display single row using slicing
+datav2[0:2]
+9.# display or access contents of more than one column
+datav2[['id','url','region']]
+10.# another way to access contents of more than one column
+list1 = ['id','url','region']
+datav2[list1]
+11.# enables us to select a particular cell of the dataset
+datav2.iloc[0:8,0:4]
+12.datav2 = datav2.drop('url', axis=1)   #drop particular column
+datav2
+13.datav2['price_mile'] = datav2['price']/datav2['odometer']  #new feature creation with calculations on columns
+datav2['price_mile']
+14.# function or defination to double the price of particular column
+def pricedouble(x):
+    return x*2
+datav2['pricedouble'] = datav2['price'].apply(pricedouble)
+datav2[['price','pricedouble']]
+15.datav2['pr'] = datav2.price.apply(lambda x:x*4)   #function can be written and applyed using apply function and lambda is used for single line function 
+datav2[['price','pr']]
+16.mylist = ["a", "b", "a", "c", "c"]
+mylist = list(dict.fromkeys(mylist))
+print(mylist)
+17.datav2['region']
+18.datav2.shape
+19.datav2.describe()
+20.datav2.isnull().sum() #display sum of missing values in dataframe

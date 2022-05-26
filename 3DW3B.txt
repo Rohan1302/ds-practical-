@@ -1,0 +1,34 @@
+#create a python programming to display some basic statistical details like
+percentile,mean,standard deviation,etc of the specific setosa. Iris versicolor or tree 
+iris versicolor of iris.csv
+
+
+1.import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import sklearn as sk
+
+2.df1=pd.read_csv("iris.csv")
+
+3.df1
+
+4.df1.describe()
+
+5.df1['Species'].value_counts()
+
+6.df2 = list(dict.fromkeys(df1['Species']))
+df2
+
+7.df1.info()
+
+8.df1.isnull().sum()
+
+9. sns.pairplot(data=df1 , hue='Species')
+
+10. sns.violinplot(x='Species', y='SepalLengthCm', data=df1)
+
+11. pr = df1.corr(method='pearson')
+pr
+
+12. sns.heatmap(pr,annot=True)

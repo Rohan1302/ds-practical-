@@ -1,0 +1,62 @@
+Text Analysis: nltk 
+    1.extract sample document and apply  following document preprocessiong methods. tokenization,pos tagging ,
+    stop wards removal , stemming
+    2.create representation of document by calculating term frequency and inverse document frequency
+
+
+1.import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+
+2.from nltk.tokenize import word_tokenize
+3.w1 = word_tokenize("Between  _them_ it was more the intimacy\nof sisters")
+print(w1)
+4.import nltk
+nltk.download('gutenberg')
+5.from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.corpus import gutenberg
+6.gutenberg.fileids()
+7.r = gutenberg.raw(['austen-emma.txt'])
+8.a = r[50:477]
+a
+9.s = sent_tokenize(a)
+10.s
+11.len(s)
+12.s[0]
+13.s[1]
+14.s1 = a.split('.')
+15.s1[0]
+16.s1[1]
+17.w1 = word_tokenize(s1[0])
+18.w1
+19.import nltk
+nltk.download('stopwords')
+20.import nltk
+from nltk.corpus import stopwords
+stop1 = set(stopwords.words('english'))
+21.print(stop1)
+22.import nltk
+nltk.download('punkt')
+23.words = ["game", "gaming", "gamed", "games"]
+24.from nltk.stem import PorterStemmer
+25.from nltk.tokenize import sent_tokenize, word_tokenize
+26.words = ["game", "gaming", "gamed", "games"]
+ps = PorterStemmer()
+for word in words:
+    print(ps.stem(word))
+    
+27.ps = PorterStemmer()
+
+sentence = "gaming, the gamers play games"
+words = word_tokenize(sentence)
+
+for word in words:
+    print(word + ":" + ps.stem(word))
+    
+28.from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import sent_tokenize, word_tokenize
+porter = PorterStemmer()
+stems= []
+for t in w1:
+    stems.append(porter.stem(t))
+print(stems)    

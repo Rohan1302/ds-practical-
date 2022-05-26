@@ -1,0 +1,48 @@
+Create a linear regression model using python R to predict house prices
+using boston housing dataset
+
+# Importing Necessary Libraries
+ 
+1.
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+2.
+from sklearn.datasets import load_boston
+housing_data = load_boston()
+housing_data
+ 
+3. housing_data.keys()
+4. housing_data['DESCR']
+5. boston = pd.DataFrame(housing_data.data)
+boston
+
+6. boston.columns=housing_data.feature_names
+boston.head()
+
+7. boston['Price']=housing_data.target
+boston.head()
+
+8. boston.info()
+
+9.boston.describe()
+10.import seaborn as sns
+sns.heatmap(boston.corr())
+
+11.boston.columns
+12.X = boston.drop('Price',axis = 1)
+Y = boston['Price']
+13. from sklearn.model_selection import train_test_split
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.3,random_state=30)
+
+14. X_train.shape
+15. from sklearn.linear_model import LinearRegression
+lr = LinearRegression()
+lr.fit(X_train,Y_train)
+
+16.import matplotlib.pyplot as plt
+pred=lr.predict(X_test)
+plt.scatter(Y_test,pred)
+plt.xlabel('Prices')
+plt.ylabel('Predicted prices')

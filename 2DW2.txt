@@ -1,0 +1,81 @@
+Create academic performance dataset of all students and perform the following operations using python.
+1.scan all vairables missing values 
+2.scan all numeric varible outliers
+
+
+
+
+1.import pandas as pd
+
+2.Data1 = pd.read_csv('AcademicPerformance.csv')
+print(Data1)
+
+3.Data1.shape
+
+4.print(Data1.isnull().sum())
+
+5.Data1.dropna(inplace=True)
+print(Data1.isnull().sum())
+
+6.import pandas as pd
+import numpy as np
+Data1 = pd.read_csv('AcademicPerformance.csv')
+print(Data1)
+
+7.Data1['raisedhands'] = Data1['raisedhands'].replace(np.NaN,Data1['raisedhands'].mean())
+8.print(Data1['raisedhands'][:10])
+
+9.import numpy as np
+Data1 = pd.read_csv('AcademicPerformance.csv')
+print(Data1)
+
+10.Data1['raisedhands'] = Data1['raisedhands'].replace(np.NaN,Data1['raisedhands'].median())
+
+11.print(Data1['raisedhands'][:10])
+
+12.import statistics
+Data1 = pd.read_csv('AcademicPerformance.csv')
+print(Data1)
+
+13.Data1['raisedhands'] = Data1['raisedhands'].replace(np.NaN,statistics.mode(Data1['raisedhands']))
+print(Data1['raisedhands'][:10])
+
+14.Data1 = pd.read_csv('AcademicPerformance.csv')
+print(Data1)
+
+15.Data1.isnull().sum()
+
+16.#Perform the imputation on value
+Data1['gender'] = Data1['gender'].fillna('T')
+
+17.Data1.isnull().sum()
+
+18.print(Data1)
+
+19.Data2 = pd.read_csv('AcademicPerformance.csv')
+Data2['raisedhands'][:20]
+
+20.Data2.isnull().sum()
+
+21.#Last Obeservation Carried forward
+Data2['raisedhands'] = Data2['raisedhands'].fillna(method ='ffill')
+Data2.isnull().sum()
+
+22.# example of summarizing the number of missing values for each variable
+from pandas import read_csv
+# load the dataset
+dataset = read_csv('AcademicPerformance.csv', header=None)
+# count the number of missing values for each column
+num_missing = (dataset[[1,2,3,4,5]] == 0).sum()
+# report the results
+print(num_missing)
+
+23.# example of review rows from the dataset with missing values marked
+from numpy import nan
+from pandas import read_csv
+# load the dataset
+dataset = read_csv('AcademicPerformance.csv', header=None)
+# replace '0' values with 'nan'
+dataset[[1,2,3,4,5]] = dataset[[1,2,3,4,5]].replace(0, nan)
+# print the first 20 rows of data
+print(dataset.head(20))

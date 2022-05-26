@@ -1,0 +1,40 @@
+#Descriptive Statistics is the building block of data science. Advanced analytics is often incomplete without analyzing descriptive statistics of the key metrics. In simple terms, descriptive statistics can be defined as the measures that summarize a given data, and these measures can be broken down further into the measures of central tendency and the measures of dispersion.
+
+#Measures of central tendency include mean, median, and the mode, while the measures of variability include standard deviation, variance, and the interquartile range. In this guide, you will learn how to compute these measures of descriptive statistics and use them to interpret the data.
+
+#We will cover the topics given below: - 
+
+1. import pandas as pd
+import numpy as np
+import sklearn as sk
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+2.df = pd.read_csv('Mall_Customers.csv')
+df
+
+3. df.mean()
+
+4. df.min()
+
+5. df.max()
+
+6. df.mean()
+
+7. df.median()
+
+8. df.mode()
+
+9. df.loc[:,'Age'].mean()
+
+10. df.loc[:,'Age'].median()
+
+11. df.loc[:,'Age'].mode()
+
+12. df.loc[:,'Age'].min()
+
+13. df.std()
+
+14. df.isnull().sum()
+
+15. df.dropna()

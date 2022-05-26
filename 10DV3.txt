@@ -1,0 +1,34 @@
+Download the Iris flower dataset or any other dataset into a DataFrame. (eg
+https://archive.ics.uci.edu/ml/datasets/Iris) Use Python/R and perform following –
+1. How many features are there and what are their types (e.g., numeric, nominal)?
+2. Compute and display summary statistics for each feature available in the dataset. (eg.
+minimum value, maximum value, mean, range, standard deviation, variance and
+percentiles)
+3. Data Visualization-Create a histogram for each feature in the dataset to illustrate the
+feature distributions. Plot each histogram.
+4. Create a boxplot for each feature in the dataset. Compare distributions and identify
+outliers.
+
+
+1.import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib as plt
+
+2.df =  pd.read_csv('iris.csv')
+3.df.head()
+4.column = len(list(df))
+column
+5.df.shape
+6.df.columns
+7.df.info()
+8.df.describe()
+9.np.unique(df["Species"])
+10.df.hist('SepalLengthCm')
+11.df.hist('SepalWidthCm', grid=False)
+12.df.hist('PetalLengthCm')
+13.df.hist('PetalWidthCm', grid = False)
+14.sns.boxplot(x="Species", y='SepalLengthCm', data=df)
+15.sns.boxplot(x="Species", y='SepalWidthCm', data=df)
+16.sns.boxplot(x="Species", y='PetalLengthCm', data=df)
+17.sns.boxplot(x="Species", y='PetalWidthCm', data=df)

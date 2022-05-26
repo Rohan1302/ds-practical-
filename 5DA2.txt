@@ -1,0 +1,48 @@
+#Data analytics II
+#Implement logistic regression using python IR to perform classification on social media networks_ads_csv dataset.
+# Compute confusion matrix to find TP,FP,TN,FN,Accuracy,Error Rate,Precision Recall On given dataset.
+
+# Logistic Regression
+1.# importing the library
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+2.# importing the dataset
+data1 = pd.read_csv('Social_Network_Adds.csv')
+data1
+
+3.print(data1.shape)
+
+4. X = pd.DataFrame(data1.iloc[:, :-1])
+y = pd.DataFrame(data1.iloc[:, -1])
+
+
+5.X
+
+6.Y
+
+7.from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+8.# fitting logistic regression on the training set
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression( )
+print(classifier.fit(X_train, y_train))
+
+9.# predicting the test set result
+y_pred = classifier.predict(X_test)
+
+10.y_pred
+
+#Ecaluate model using confusion matrix
+
+
+# making the confusion matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+cm
+
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
